@@ -39,19 +39,54 @@ container.addEventListener("click",function(e){
       if(e.target.value==ans)
       {
         e.target.style.backgroundColor="rgb(138, 138, 241)";
-        console.log("Yesssss");
+        let ol=e.target.parentElement.parentElement;
+        let inputArray=ol.querySelectorAll("ol > li > input");
+        for(let i=0;i<inputArray.length;i++)
+        {
+            inputArray[i].disabled=true;
+        }
+        console.log(inputArray);
+
         correctAns++;
         addNextButton();
       }
       else
       {
         e.target.style.backgroundColor="rgb(206, 51, 51)";
-        console.log("Noooo");
+        let ol=e.target.parentElement.parentElement;
+        let inputArray=ol.querySelectorAll("ol > li > input");
+        for(let i=0;i<inputArray.length;i++)
+        {
+            inputArray[i].disabled=true;
+        }
         // coloringRightAnswer();
+        for(let i=0;i<inputArray.length;i++)
+        {
+            if(inputArray[i].getAttribute("value")==ans)
+            {
+                inputArray[i].style.backgroundColor="blue";
+            }
+        }
         addNextButton();
       }
     }
     currentQuestionNo++;
-    visibleQuestion();
+    // visibleQuestion();
     
   });
+
+function addNextButton()
+{
+    let nextBtn=document.createElement("input");
+    nextBtn.innerHTML="Next";
+    nextBtn.value="NEXT";
+    nextBtn.classList.add("nextButton");
+    qst.appendChild(nextBtn);
+}
+
+
+// function clickNext(){
+//     nextBtn.addEventListener("click",function(e){ 
+//         visibleQuestion();
+//     });
+// }
