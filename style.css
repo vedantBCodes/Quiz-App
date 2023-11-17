@@ -1,0 +1,30 @@
+body{
+    background-color: beige;
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:400px;
+    background-color: rgb(242, 235, 227);
+    padding:20px;
+    border-radius: 10px;
+}
+ol li{
+    padding:10px;
+}
+ol li input{
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%;
+}
+ol li input:hover{
+    background-color:white ;
+}
+hr{
+    border: 1px solid black;
+}
+.question p{
+    font-size: 20px;
+}
