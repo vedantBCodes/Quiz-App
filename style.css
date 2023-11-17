@@ -18,6 +18,7 @@ ol li input{
     padding: 10px;
     border-radius: 10px;
     width: 80%;
+    background-color: rgb(238, 236, 236);
 }
 ol li input:hover{
     background-color:white ;
@@ -26,5 +27,20 @@ hr{
     border: 1px solid black;
 }
 .question p{
+    font-size: 20px;
+}
+.nextButton{
+    margin-left: 100px;
+    padding:10px 0px;
+    padding-left: 80px;
+    border:1px solid black;
+    border-radius: 10px;
+    background-color: antiquewhite;
+}
+.nextButton:hover{
+    background-color: rgb(219, 183, 135);
+    transition: 1s;
+}
+.score{
     font-size: 20px;
 }
