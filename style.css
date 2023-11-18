@@ -53,4 +53,8 @@ hr{
     {
         width:300px;
     }
+    .nextButton
+    {
+        margin-left: 110px;
+    }
 }
