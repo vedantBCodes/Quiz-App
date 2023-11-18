@@ -4,7 +4,9 @@ let btn=document.getElementsByTagName("button");
 let correctAns=0;
 let currentQuestion;
 let currentQuestionNo=0;
+
 visibleQuestion();
+
 function visibleQuestion()
 {
 for(let i=0;i<questions.length;i++)
@@ -19,18 +21,11 @@ for(let i=0;i<questions.length;i++)
         questions[i].style.display="none";
     }
 }
-if(currentQuestionNo==3)
+if(currentQuestionNo==questions.length)
 {
     showScore();
 }
 mainFun();
-}
-function showScore()
-{
-    let div=document.createElement("div");
-    div.innerHTML=`<h>You scored ${correctAns} out of 3</h> !`;
-    div.classList.add("score");
-    container.appendChild(div);
 }
 
 function mainFun(){
@@ -76,10 +71,11 @@ function mainFun(){
 }
 
 let nextBtn;
+
 function addNextButton()
 {
     removeElement();
-     nextBtn=document.createElement("button");
+    nextBtn=document.createElement("button");
     nextBtn.innerHTML="Next";
     nextBtn.value="NEXT";
     nextBtn.classList.add("nextButton");
@@ -91,6 +87,14 @@ function clickNext(){
         currentQuestionNo++;
         visibleQuestion();
     });
+}
+
+function showScore()
+{
+    let div=document.createElement("div");
+    div.innerHTML=`<h>You scored ${correctAns} out of ${questions.length}</h> !`;
+    div.classList.add("score");
+    container.appendChild(div);
 }
 
 function removeElement(){
