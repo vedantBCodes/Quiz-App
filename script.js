@@ -21,10 +21,6 @@ for(let i=0;i<questions.length;i++)
         questions[i].style.display="none";
     }
 }
-if(currentQuestionNo==questions.length)
-{
-    showScore();
-}
 mainFun();
 }
 
@@ -43,8 +39,16 @@ function mainFun(){
         {
             inputArray[i].disabled=true;
         }
-        addNextButton();
-        clickNext();
+        if(currentQuestionNo==9)
+        {
+            addViewScoreButton();
+            clickViewScoreButton();
+        }
+        else
+        {
+            addNextButton();
+            clickNext();
+        }
       }
       else
       {
@@ -63,8 +67,16 @@ function mainFun(){
                 inputArray[i].style.backgroundColor="rgb(138, 138, 241)";
             }
         }
-        addNextButton();
-        clickNext();
+        if(currentQuestionNo==9)
+        {
+            addViewScoreButton();
+            clickViewScoreButton();
+        }
+        else
+        {
+            addNextButton();
+            clickNext();
+        }
       }
     }
   });
@@ -76,16 +88,51 @@ function addNextButton()
 {
     removeElement();
     nextBtn=document.createElement("button");
+
+    /*
+    NOTE:- One can also add the view score button like this
+    if(currentQuestionNo==2)
+    {
+        nextBtn.innerHTML="View Score";
+    }
+    else
+    {
+        nextBtn.innerHTML="Next";
+    }
+    */
+
     nextBtn.innerHTML="Next";
     nextBtn.value="NEXT";
     nextBtn.classList.add("nextButton");
     questions[currentQuestionNo].appendChild(nextBtn);
 }
 
-function clickNext(){
+function addViewScoreButton()
+{
+    removeElement();
+    nextBtn=document.createElement("button");
+    nextBtn.innerHTML="View Score";
+    nextBtn.value="View Score";
+    nextBtn.classList.add("nextButton");
+    currentQuestionNo++;
+    questions[9].appendChild(nextBtn);
+}
+
+function clickNext()
+{
     nextBtn.addEventListener("click",function(){ 
         currentQuestionNo++;
         visibleQuestion();
+    });
+}
+
+function clickViewScoreButton()
+{
+    nextBtn.addEventListener("click",function(){ 
+        questions[9].style.display="none";
+        questions[10].style.display="block";
+        showScore();
+        nextBtn.disabled=true;
     });
 }
 
@@ -94,10 +141,12 @@ function showScore()
     let div=document.createElement("div");
     div.innerHTML=`<h>You scored ${correctAns} out of ${questions.length}</h> !`;
     div.classList.add("score");
-    container.appendChild(div);
+    questions[10].insertAdjacentElement("afterend",div);
 }
 
-function removeElement(){
+
+function removeElement()
+{
     for(let i=0;i<btn.length;i++)
     {
         btn[i].remove();
