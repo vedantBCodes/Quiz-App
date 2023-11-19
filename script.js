@@ -139,7 +139,7 @@ function clickViewScoreButton()
 function showScore()
 {
     let div=document.createElement("div");
-    div.innerHTML=`<h>You scored ${correctAns} out of ${questions.length}</h> !`;
+    div.innerHTML=`<h>You scored ${correctAns} out of ${questions.length-1}</h> !`;
     div.classList.add("score");
     questions[10].insertAdjacentElement("afterend",div);
 }
