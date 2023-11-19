@@ -140,8 +140,11 @@ function showScore()
 {
     let div=document.createElement("div");
     div.innerHTML=`<h>You scored ${correctAns} out of ${questions.length-1}</h> !`;
+<<<<<<< HEAD
     div.style.textAlign="center";
     div.style.fontSize="30px";
+=======
+>>>>>>> ad0ccc59178baa81b83eeaf434c575ed0a8c08cc
     div.classList.add("score");
     questions[10].insertAdjacentElement("afterend",div);
 }
